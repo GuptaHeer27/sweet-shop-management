@@ -119,7 +119,7 @@ public class SweetShopServiceTest {
     }
 
     
-    // Sort Sweet by Quantity 
+    // Sort Sweet by Quantity:Low to High
     @Test
     public void shouldSortSweetsByQuantityAscending() {
         SweetShopService service = new SweetShopService();
@@ -130,6 +130,20 @@ public class SweetShopServiceTest {
 
         assertEquals("S1", sorted.get(0).getId()); // 5 comes before 15
         assertEquals("S2", sorted.get(1).getId());
+    }
+
+    
+    // Sort Sweet by Quantity: High to Low
+    @Test
+    public void shouldSortSweetsByQuantityDescending() {
+        SweetShopService service = new SweetShopService();
+        service.addSweet(new Sweet("S1", "Ladoo", "Festive", 30.0, 5));
+        service.addSweet(new Sweet("S2", "Rasgulla", "Dry", 20.0, 15));
+
+        List<Sweet> sorted = service.sortByQuantityDescending();
+
+        assertEquals("S2", sorted.get(0).getId()); // 15 comes before 5
+        assertEquals("S1", sorted.get(1).getId());
     }
 
 
