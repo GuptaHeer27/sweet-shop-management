@@ -66,7 +66,11 @@ public class SweetShopService {
     
     // Sort sweet by Price: Low to High
     public List<Sweet> sortByPrice(){
-    	throw new UnsupportedOperationException("Not implemented yet");
+    	List<Sweet> list=new ArrayList<>(inventory.values());
+    	
+    	 list.sort(Comparator.comparingDouble(Sweet::getPrice));
+    	    return list;
+    	
     }
 
 
