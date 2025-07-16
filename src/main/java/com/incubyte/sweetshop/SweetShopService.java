@@ -63,6 +63,11 @@ public class SweetShopService {
 
         return result;
     }
+    
+    // Sort sweet by Price: Low to High
+    public List<Sweet> sortByPrice(){
+    	throw new UnsupportedOperationException("Not implemented yet");
+    }
 
 
 

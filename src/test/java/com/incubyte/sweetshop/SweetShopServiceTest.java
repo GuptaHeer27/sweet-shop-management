@@ -105,6 +105,19 @@ public class SweetShopServiceTest {
     }
 
 
+    // Sort Sweet by Price:Low to high
+    @Test
+    public void shouldSortSweetsByPrice() {
+        SweetShopService service = new SweetShopService();
+        service.addSweet(new Sweet("S1", "Ladoo", "Festive", 30.0, 10));
+        service.addSweet(new Sweet("S2", "Rasgulla", "Dry", 20.0, 15));
+
+        List<Sweet> sorted = service.sortByPrice();
+
+        assertEquals("S2", sorted.get(0).getId());  // cheaper one first
+        assertEquals("S1", sorted.get(1).getId());
+    }
+
 
 
     
