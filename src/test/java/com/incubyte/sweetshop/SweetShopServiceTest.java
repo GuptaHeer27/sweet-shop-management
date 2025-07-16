@@ -1,11 +1,13 @@
 package com.incubyte.sweetshop;
 
 import org.junit.Test;
-import static org.junit.Assert.*;
 import java.util.List;
+import java.util.ArrayList;
+import static org.junit.Assert.*;
 
 public class SweetShopServiceTest {
 
+	// Add Sweets
     @Test
     public void shouldAddSweetToInventory() {
         SweetShopService service = new SweetShopService();
@@ -21,7 +23,7 @@ public class SweetShopServiceTest {
     }
     
     
-    
+    // Delete sweet
     @Test
     public void shouldDeleteSweetFromInventory() {
         SweetShopService service = new SweetShopService();
@@ -34,5 +36,36 @@ public class SweetShopServiceTest {
         assertTrue(deleted); // verify it returned true
         assertEquals(0, service.getAllSweets().size()); // verify item is gone
     }
+    
+    
+    // View Sweets
+    @Test
+    public void shouldReturnAllSweetsFromInventory() {
+        SweetShopService service = new SweetShopService();
 
+        service.addSweet(new Sweet("S101", "Rasgulla", "Dry", 20.0, 10));
+        service.addSweet(new Sweet("S102", "Ladoo", "Festive", 25.0, 15));
+
+        List<Sweet> sweets = service.getAllSweets();
+        
+        
+        List<String> ids = new ArrayList<>();
+        for (Sweet sweet : sweets) {
+            ids.add(sweet.getId());
+        }
+
+        assertEquals(2, sweets.size());
+        assertTrue(ids.contains("S101"));
+        assertTrue(ids.contains("S102"));
+      
+    }
+
+
+    
+    
+    
+    
+    
+    
+    
 }
