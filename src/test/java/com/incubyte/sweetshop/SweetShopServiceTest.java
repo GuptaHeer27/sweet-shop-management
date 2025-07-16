@@ -145,6 +145,22 @@ public class SweetShopServiceTest {
         assertEquals("S2", sorted.get(0).getId()); // 15 comes before 5
         assertEquals("S1", sorted.get(1).getId());
     }
+    
+    
+    // Test to purchase sweet which is present and have enough quantity
+    @Test
+    public void shouldPurchaseSweetAndReduceQuantity() {
+        SweetShopService service = new SweetShopService();
+        service.addSweet(new Sweet("S101", "Ladoo", "Festive", 30.0, 10));
+
+        boolean result = service.purchaseSweet("S101", 3);
+
+        assertTrue(result);
+        assertEquals(7, service.getAllSweets().get(0).getQuantity());
+    }
+
+
+
 
 
 

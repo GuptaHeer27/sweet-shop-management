@@ -90,7 +90,10 @@ public class SweetShopService {
     	
     }
 
-
+ 
+    public boolean purchaseSweet(String id, int quantity) {
+    	throw new UnsupportedOperationException("Not Implemented");
+    }
 
 
     
