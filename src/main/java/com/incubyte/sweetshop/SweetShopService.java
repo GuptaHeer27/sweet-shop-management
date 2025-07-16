@@ -14,6 +14,9 @@ public class SweetShopService {
         return new ArrayList<>(inventory.values());
     }
 
-    // Additional methods (to be added next):
-    // deleteSweet(), searchByName(), purchaseSweet(), etc.
+    public boolean deleteSweet(String id) {
+        return inventory.remove(id) != null;
+    }
+
+
 }

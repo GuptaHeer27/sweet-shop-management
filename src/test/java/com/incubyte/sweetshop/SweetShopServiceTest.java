@@ -19,4 +19,20 @@ public class SweetShopServiceTest {
         assertEquals("S101", sweets.get(0).getId());
         assertEquals("Rasgulla", sweets.get(0).getName());
     }
+    
+    
+    
+    @Test
+    public void shouldDeleteSweetFromInventory() {
+        SweetShopService service = new SweetShopService();
+
+        Sweet sweet = new Sweet("S102", "Ladoo", "Festive", 25.0, 15);
+        service.addSweet(sweet);
+
+        boolean deleted = service.deleteSweet("S102");
+
+        assertTrue(deleted); // verify it returned true
+        assertEquals(0, service.getAllSweets().size()); // verify item is gone
+    }
+
 }
