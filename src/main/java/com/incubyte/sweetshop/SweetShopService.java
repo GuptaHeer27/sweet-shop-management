@@ -19,6 +19,11 @@ public class SweetShopService {
         return inventory.remove(id) != null;
     }
     
+    // Just to run method in Test
+    public List<Sweet> searchByName(String category) { 
+        throw new UnsupportedOperationException("Not implemented yet");
+    }
+
     
 
 

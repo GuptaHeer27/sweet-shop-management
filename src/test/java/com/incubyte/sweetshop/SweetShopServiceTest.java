@@ -59,6 +59,24 @@ public class SweetShopServiceTest {
         assertTrue(ids.contains("S102"));
       
     }
+    
+    
+    
+    @Test
+    public void shouldReturnSweetsMatchingKeyword() {
+        SweetShopService service = new SweetShopService();
+
+        service.addSweet(new Sweet("S101", "Rasgulla", "Dry", 20.0, 10));
+        service.addSweet(new Sweet("S102", "Ladoo", "Festive", 25.0, 15));
+        service.addSweet(new Sweet("S103", "Kesar Ladoo", "Festive", 30.0, 8));
+
+        List<Sweet> results = service.searchByName("ladoo");
+
+        assertEquals(2, results.size());
+        assertTrue(results.get(0).getName().toLowerCase().contains("ladoo"));
+        assertTrue(results.get(1).getName().toLowerCase().contains("ladoo"));
+    }
+
 
 
     
