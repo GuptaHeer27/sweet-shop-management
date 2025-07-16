@@ -8,11 +8,12 @@ import static org.junit.Assert.*;
 public class SweetShopServiceTest {
 
 	// Add Sweets
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void shouldAddSweetToInventory() {
         SweetShopService service = new SweetShopService();
 
         Sweet sweet = new Sweet("S101", "Rasgulla", "Dry", 20.0, 10);
+        service.addSweet(new Sweet("S101", "Kaju Katli", "Dry", 30.0, 5)); // duplicate ID
         service.addSweet(sweet);
 
         List<Sweet> sweets = service.getAllSweets();
@@ -20,11 +21,12 @@ public class SweetShopServiceTest {
         assertEquals(1, sweets.size());
         assertEquals("S101", sweets.get(0).getId());
         assertEquals("Rasgulla", sweets.get(0).getName());
+        
     }
     
     
     // Delete sweet
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void shouldDeleteSweetFromInventory() {
         SweetShopService service = new SweetShopService();
 
@@ -32,6 +34,7 @@ public class SweetShopServiceTest {
         service.addSweet(sweet);
 
         boolean deleted = service.deleteSweet("S102");
+        service.deleteSweet("S999"); // doesn't exist
 
         assertTrue(deleted); // verify it returned true
         assertEquals(0, service.getAllSweets().size()); // verify item is gone
