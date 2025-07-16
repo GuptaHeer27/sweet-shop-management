@@ -61,7 +61,7 @@ public class SweetShopServiceTest {
     }
     
     
-    
+    // Search sweet by Name
     @Test
     public void shouldReturnSweetsMatchingKeyword() {
         SweetShopService service = new SweetShopService();
@@ -76,6 +76,21 @@ public class SweetShopServiceTest {
         assertTrue(results.get(0).getName().toLowerCase().contains("ladoo"));
         assertTrue(results.get(1).getName().toLowerCase().contains("ladoo"));
     }
+    
+    
+    // Search sweet by Category
+    @Test
+    public void shouldReturnSweetsByCategory() {
+        SweetShopService service = new SweetShopService();
+        service.addSweet(new Sweet("S101", "Rasgulla", "Dry", 20, 10));
+        service.addSweet(new Sweet("S102", "Ladoo", "Festive", 25, 15));
+
+        List<Sweet> results = service.searchByCategory("Festive");
+
+        assertEquals(1, results.size());
+        assertEquals("S102", results.get(0).getId());
+    }
+
 
 
 

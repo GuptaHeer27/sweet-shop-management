@@ -36,6 +36,12 @@ public class SweetShopService {
 
         return result;
     }
+    
+    // Search sweet by Category
+    public List<Sweet> searchByCategory(String category) {
+        throw new UnsupportedOperationException("Not implemented yet");
+    }
+
 
 
     
