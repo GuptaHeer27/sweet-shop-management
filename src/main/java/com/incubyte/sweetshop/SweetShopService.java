@@ -111,6 +111,10 @@ public class SweetShopService {
     public boolean restoreSweet(String id,int quantity) {
     	Sweet sweet=inventory.get(id);
     	
+    	if(sweet==null) {
+    		  throw new IllegalArgumentException("Sweet not found");
+    	}
+    	
     	sweet.setQuantity(sweet.getQuantity() + quantity);
     	return true;
     }

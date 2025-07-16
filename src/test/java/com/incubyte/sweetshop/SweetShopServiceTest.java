@@ -191,7 +191,7 @@ public class SweetShopServiceTest {
     	assertEquals(15,service.getAllSweets().get(0).getQuantity());
     }
     
-
+   // Restore sweet which is not present
     @Test(expected = IllegalArgumentException.class)
     public void shouldThrowErrorWhenRestockingNonExistentSweet() {
         SweetShopService service = new SweetShopService();
