@@ -49,6 +49,21 @@ public class SweetShopService {
         }
         return result;
     }
+    
+    // Search by Price Range
+    public List<Sweet> searchByPriceRange(double minPrice, double maxPrice) {
+    	List<Sweet> result=new ArrayList<>();
+    	
+    	for (Sweet sweet : inventory.values()) {
+            double price = sweet.getPrice();
+            if (price >= minPrice && price <= maxPrice) {
+                result.add(sweet);
+            }
+        }
+
+        return result;
+    }
+
 
 
 
