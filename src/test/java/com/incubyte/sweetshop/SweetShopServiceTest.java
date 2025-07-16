@@ -90,6 +90,19 @@ public class SweetShopServiceTest {
         assertEquals(1, results.size());
         assertEquals("S102", results.get(0).getId());
     }
+    
+    //Search Sweet by price range
+    @Test
+    public void shouldReturnSweetByWithinPriceRange() {
+    	 SweetShopService service = new SweetShopService();
+    	    service.addSweet(new Sweet("S101", "Rasgulla", "Dry", 20, 10));
+    	    service.addSweet(new Sweet("S102", "Ladoo", "Festive", 40, 15));
+
+    	    List<Sweet> results = service.searchByPriceRange(15, 30);
+
+    	    assertEquals(1, results.size());
+    	    assertEquals("S101", results.get(0).getId());
+    }
 
 
 
