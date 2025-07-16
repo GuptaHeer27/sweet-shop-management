@@ -192,6 +192,13 @@ public class SweetShopServiceTest {
     }
     
 
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldThrowErrorWhenRestockingNonExistentSweet() {
+        SweetShopService service = new SweetShopService();
+
+        service.restoreSweet("S000", 5); // Sweet doesn't exist
+    }
+
 
 
     
