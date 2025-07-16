@@ -90,9 +90,12 @@ public class SweetShopService {
     	
     }
 
- 
+ // Inventory Management: Purchase
     public boolean purchaseSweet(String id, int quantity) {
-    	throw new UnsupportedOperationException("Not Implemented");
+        Sweet sweet = inventory.get(id);
+
+        sweet.setQuantity(sweet.getQuantity() - quantity);
+        return true;
     }
 
 
