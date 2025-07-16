@@ -10,6 +10,10 @@ public class SweetShopService {
     
     // Add Sweets
     public void addSweet(Sweet sweet) {
+    	
+    	if (inventory.containsKey(sweet.getId())) {
+            throw new IllegalArgumentException("Sweet with this ID already exists");
+        }
         inventory.put(sweet.getId(), sweet);
     }
 
@@ -20,6 +24,10 @@ public class SweetShopService {
 
     // Delete Sweets
     public boolean deleteSweet(String id) {
+    	
+    	 if (!inventory.containsKey(id)) {
+    	        throw new IllegalArgumentException("Sweet not found");
+    	    }
         return inventory.remove(id) != null;
     }
     
