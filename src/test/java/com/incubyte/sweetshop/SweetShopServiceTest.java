@@ -168,6 +168,14 @@ public class SweetShopServiceTest {
         service.purchaseSweet("S101", 5);  // Should throw error
     }
 
+    // Sweet not found
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldThrowErrorWhenSweetNotFound() {
+        SweetShopService service = new SweetShopService();
+
+        service.purchaseSweet("S999", 1);  // Should throw error
+    }
+
 
 
 
