@@ -39,7 +39,15 @@ public class SweetShopService {
     
     // Search sweet by Category
     public List<Sweet> searchByCategory(String category) {
-        throw new UnsupportedOperationException("Not implemented yet");
+        List<Sweet> result=new ArrayList<>();
+        
+        for(Sweet sweet: inventory.values()) {
+        	
+        	if(sweet.getCategory().equalsIgnoreCase(category)) {
+        		result.add(sweet);
+        	}
+        }
+        return result;
     }
 
 
