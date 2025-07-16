@@ -93,6 +93,10 @@ public class SweetShopService {
  // Inventory Management: Purchase
     public boolean purchaseSweet(String id, int quantity) {
         Sweet sweet = inventory.get(id);
+        
+        if (sweet.getQuantity() < quantity) {
+            throw new IllegalArgumentException("Not enough stock available");
+        }
 
         sweet.setQuantity(sweet.getQuantity() - quantity);
         return true;
