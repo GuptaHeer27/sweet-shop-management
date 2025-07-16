@@ -177,7 +177,20 @@ public class SweetShopServiceTest {
     }
 
 
-
+  
+    // Restore Sweet
+    @Test
+    public void shouldRestoreSweetAndIncreaseQuantity() {
+    	SweetShopService service =new SweetShopService();
+    	
+    	service.addSweet(new Sweet("S101", "Ladoo", "Festive", 30.0, 5));
+    	
+    	boolean result=service.restoreSweet("S101", 10);
+    	
+    	assertTrue(result);
+    	assertEquals(15,service.getAllSweets().get(0).getQuantity());
+    }
+    
 
 
 

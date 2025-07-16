@@ -106,6 +106,11 @@ public class SweetShopService {
         return true;
     }
 
+    
+    // Restore Sweet
+    public boolean restoreSweet(String id,int quantity) {
+    	throw new UnsupportedOperationException("Not Implemented");
+    }
 
     
 
