@@ -109,7 +109,10 @@ public class SweetShopService {
     
     // Restore Sweet
     public boolean restoreSweet(String id,int quantity) {
-    	throw new UnsupportedOperationException("Not Implemented");
+    	Sweet sweet=inventory.get(id);
+    	
+    	sweet.setQuantity(sweet.getQuantity() + quantity);
+    	return true;
     }
 
     
