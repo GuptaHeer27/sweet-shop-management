@@ -159,6 +159,15 @@ public class SweetShopServiceTest {
         assertEquals(7, service.getAllSweets().get(0).getQuantity());
     }
 
+    // Not enough Quantity
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldThrowErrorWhenNotEnoughStock() {
+        SweetShopService service = new SweetShopService();
+        service.addSweet(new Sweet("S101", "Ladoo", "Festive", 30.0, 2));
+
+        service.purchaseSweet("S101", 5);  // Should throw error
+    }
+
 
 
 
