@@ -73,6 +73,11 @@ public class SweetShopService {
     	
     }
 
+    // Sort sweet by Quantity: Low to high
+    public List<Sweet> sortByQuantityAscending() {
+        throw new UnsupportedOperationException("not Implemented");
+    }
+
 
 
 

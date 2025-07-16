@@ -118,6 +118,20 @@ public class SweetShopServiceTest {
         assertEquals("S1", sorted.get(1).getId());
     }
 
+    
+    // Sort Sweet by Quantity 
+    @Test
+    public void shouldSortSweetsByQuantityAscending() {
+        SweetShopService service = new SweetShopService();
+        service.addSweet(new Sweet("S1", "Ladoo", "Festive", 30.0, 5));
+        service.addSweet(new Sweet("S2", "Rasgulla", "Dry", 20.0, 15));
+
+        List<Sweet> sorted = service.sortByQuantityAscending();
+
+        assertEquals("S1", sorted.get(0).getId()); // 5 comes before 15
+        assertEquals("S2", sorted.get(1).getId());
+    }
+
 
 
     
