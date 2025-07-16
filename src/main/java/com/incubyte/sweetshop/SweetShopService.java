@@ -94,6 +94,10 @@ public class SweetShopService {
     public boolean purchaseSweet(String id, int quantity) {
         Sweet sweet = inventory.get(id);
         
+        if (sweet == null) {
+            throw new IllegalArgumentException("Sweet not found");
+        }
+        
         if (sweet.getQuantity() < quantity) {
             throw new IllegalArgumentException("Not enough stock available");
         }
