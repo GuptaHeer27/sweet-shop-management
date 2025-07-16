@@ -75,7 +75,9 @@ public class SweetShopService {
 
     // Sort sweet by Quantity: Low to high
     public List<Sweet> sortByQuantityAscending() {
-        throw new UnsupportedOperationException("not Implemented");
+    	List<Sweet> list = new ArrayList<>(inventory.values());
+        list.sort(Comparator.comparingInt(Sweet::getQuantity));
+        return list;
     }
 
 
