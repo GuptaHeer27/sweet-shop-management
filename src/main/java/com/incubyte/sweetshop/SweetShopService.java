@@ -9,12 +9,13 @@ public class SweetShopService {
 
     
     // Add Sweets
-    public void addSweet(Sweet sweet) {
+    public boolean addSweet(Sweet sweet) {
     	
     	if (inventory.containsKey(sweet.getId())) {
             throw new IllegalArgumentException("Sweet with this ID already exists");
         }
         inventory.put(sweet.getId(), sweet);
+        return true;
     }
 
     // View Sweets
