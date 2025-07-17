@@ -22,4 +22,6 @@ A simple inventory management system for a sweet shop developed using **Java**, 
 - Run SweetShopUI.java as Java Application to launch UI
 - Run SweetShopServiceTest.java for all test cases
 
+**Test Report is Added**
+
   
